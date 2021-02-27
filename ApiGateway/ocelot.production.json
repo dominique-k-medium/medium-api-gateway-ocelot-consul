@@ -1,0 +1,24 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/WeatherForecast",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/weather",
+      "UpstreamHttpMethod": [ "Get", "Put", "Post", "Delete" ],
+      "ServiceName": "SampleAPI",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "192.168.68.127",
+      "Port": 8500,
+      "Type": "Consul",
+      "PollingInterval": 100
+    }
+  }
+}
